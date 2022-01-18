@@ -3,7 +3,7 @@ import { solutionIndex } from './words'
 
 export const shareStatus = (guesses: string[]) => {
   navigator.clipboard.writeText(
-    'Wordle ' +
+    'Vārdulis ' +
       solutionIndex +
       ' ' +
       guesses.length +
