@@ -14,10 +14,15 @@ export const isWinningWord = (word: string) => {
 
 export const getWordOfDay = () => {
   // January 1, 2022 Game Epoch
-  const epochMs = 1641013200000
+  const epochMs = 1640988000000
   const now = Date.now()
   const msInDay = 86400000
   const index = Math.floor((now - epochMs) / msInDay)
+  var totalLeft = (1-(((now - epochMs) /msInDay)-(index)))*24
+  var hoursLeft = Math.floor(totalLeft)
+  var mLeft = totalLeft-hoursLeft
+  var minutesLeft = Math.floor(mLeft*60)
+  console.log("Atlikušas " + hoursLeft + " stundas un " + minutesLeft + " minūtes līdz nākamajam vārdam.")
 
   return {
     solution: WORDS[index].toUpperCase(),
