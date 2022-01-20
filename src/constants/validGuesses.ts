@@ -2995,5 +2995,4 @@ export const VALIDGUESSES = [
 	'tapēc',
 	'brūce',
 	'kārts',
-	'eupol',
 ]
