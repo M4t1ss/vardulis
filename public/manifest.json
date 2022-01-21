@@ -1,6 +1,6 @@
 {
-  "short_name": "Vārdulis",
-  "name": "Ikdienas vārdu spēle - Vārdulis",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",

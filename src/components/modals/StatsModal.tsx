@@ -6,10 +6,14 @@ import { BaseModal } from './BaseModal'
 type Props = {
   isOpen: boolean
   handleClose: () => void
-  gameStats: GameStats
+  stats: number[]
 }
 
-export const StatsModal = ({ isOpen, handleClose, gameStats }: Props) => {
+export const StatsModal = ({ isOpen, handleClose, stats }: Props) => {
+  const labels = ["Mēģinājumi", "Atminēti", 
+                  "Šobrīd pēc kārtas", "Visvairāk pēc kārtas"]
+  const values = [String(trys(stats)), String(successRate(stats))+'%', 
+                  String(currentStreak(stats)), String(bestStreak(stats))]
   return (
     <BaseModal title="Statistics" isOpen={isOpen} handleClose={handleClose}>
       <StatBar gameStats={gameStats} />
