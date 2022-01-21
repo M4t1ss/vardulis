@@ -40,11 +40,8 @@ function App() {
     }
     return loaded.guesses
   })
-  
-  const [stats, setStats] = useState<number[]>(() => {
-    const  loaded = loadStats()
-    return loaded
-  })
+  const [stats, setStats] = useState(() => loadStats())
+
 
   const [stats, setStats] = useState(() => loadStats())
 
