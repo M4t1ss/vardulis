@@ -1,3 +1,4 @@
+ import { useState, useEffect } from 'react'
 import { CharStatus } from '../../lib/statuses'
 import classnames from 'classnames'
 
@@ -7,6 +8,13 @@ type Props = {
 }
 
 export const Cell = ({ value, status }: Props) => {
+  const [cellAnimation, setCellAnimation] = useState('')
+
+  useEffect(() => {
+    if (value !== undefined) {
+      setCellAnimation('cellAnimation')
+    }
+  }, [value])
   const classes = classnames(
     'w-14 h-14 border-solid border-2 flex items-center justify-center mx-0.5 text-lg font-bold rounded',
     {
