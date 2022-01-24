@@ -18,7 +18,7 @@ export const WinModal = ({
   handleShare,
 }: Props) => {
   return (
-    <BaseModal title="You won!" isOpen={isOpen} handleClose={handleClose}>
+    <BaseModal title="Tu uzvarēji!" isOpen={isOpen} handleClose={handleClose}>
       <div>
         <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
           <CheckIcon className="h-6 w-6 text-green-600" aria-hidden="true" />
@@ -28,11 +28,10 @@ export const WinModal = ({
             as="h3"
             className="text-lg leading-6 font-medium text-gray-900"
           >
-            You won!
           </Dialog.Title>
           <div className="mt-2">
             <MiniGrid guesses={guesses} />
-            <p className="text-sm text-gray-500">Great job.</p>
+            <p className="text-sm text-gray-500">Labi padarīts.</p>
           </div>
         </div>
       </div>
@@ -45,7 +44,7 @@ export const WinModal = ({
             handleShare()
           }}
         >
-          Share
+          Dalīties
         </button>
       </div>
     </BaseModal>

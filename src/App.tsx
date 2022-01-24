@@ -9,7 +9,7 @@ import { InfoModal } from './components/modals/InfoModal'
 import { WinModal } from './components/modals/WinModal'
 import { StatsModal } from './components/modals/StatsModal'
 import { isWordInWordList, isWinningWord, solution } from './lib/words'
-import { addEvent, loadStats } from './lib/stats'
+import { addStatsForCompletedGame, loadStats } from './lib/stats'
 import {
   loadGameStateFromLocalStorage,
   saveGameStateToLocalStorage,
@@ -21,6 +21,7 @@ function App() {
   const [isWinModalOpen, setIsWinModalOpen] = useState(false)
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false)
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false)
+  const [isNotEnoughLetters, setIsNotEnoughLetters] = useState(false)
   const [isStatsModalOpen, setIsStatsModalOpen] = useState(false)
   const [isWordNotFoundAlertOpen, setIsWordNotFoundAlertOpen] = useState(false)
   const [isGameLost, setIsGameLost] = useState(false)
@@ -38,11 +39,6 @@ function App() {
       setIsGameLost(true)
     }
     return loaded.guesses
-  })
-  
-  const [stats, setStats] = useState<number[]>(() => {
-    const  loaded = loadStats()
-    return loaded
   })
 
   const [stats, setStats] = useState(() => loadStats())
@@ -89,11 +85,12 @@ function App() {
       setCurrentGuess('')
 
       if (winningWord) {
-        setStats(addEvent(stats, guesses.length))
+        setStats(addStatsForCompletedGame(stats, guesses.length))
         return setIsGameWon(true)
       }
 
       if (guesses.length === 5) {
+        setStats(addStatsForCompletedGame(stats, guesses.length + 1))
         setIsGameLost(true)
       }
     }
@@ -138,7 +135,7 @@ function App() {
       <StatsModal
         isOpen={isStatsModalOpen}
         handleClose={() => setIsStatsModalOpen(false)}
-        stats={stats}
+        gameStats={stats}
       />
       <AboutModal
         isOpen={isAboutModalOpen}
@@ -153,14 +150,14 @@ function App() {
         Par šo spēli
       </button>
 
-      <Alert message="Not enough letters" isOpen={isNotEnoughLetters} />
-      <Alert message="Word not found" isOpen={isWordNotFoundAlertOpen} />
+      <Alert message="Pārāk maz burtu" isOpen={isNotEnoughLetters} />
+      <Alert message="Vārds netika atrasts" isOpen={isWordNotFoundAlertOpen} />
       <Alert
-        message={`You lost, the word was ${solution}`}
+        message={`Tu zaudēji, vārds bija ${solution}`}
         isOpen={isGameLost}
       />
       <Alert
-        message="Game copied to clipboard"
+        message="Spēle nokopēta starpliktuvē"
         isOpen={shareComplete}
         variant="success"
       />

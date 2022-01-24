@@ -6,19 +6,15 @@ import { BaseModal } from './BaseModal'
 type Props = {
   isOpen: boolean
   handleClose: () => void
-  stats: number[]
+  gameStats: GameStats
 }
 
-export const StatsModal = ({ isOpen, handleClose, stats }: Props) => {
-  const labels = ["Mēģinājumi", "Atminēti", 
-                  "Šobrīd pēc kārtas", "Visvairāk pēc kārtas"]
-  const values = [String(trys(stats)), String(successRate(stats))+'%', 
-                  String(currentStreak(stats)), String(bestStreak(stats))]
+export const StatsModal = ({ isOpen, handleClose, gameStats }: Props) => {
   return (
-    <BaseModal title="Statistics" isOpen={isOpen} handleClose={handleClose}>
+    <BaseModal title="Statistika" isOpen={isOpen} handleClose={handleClose}>
       <StatBar gameStats={gameStats} />
       <h4 className="text-lg leading-6 font-medium text-gray-900">
-        Guess Distribution
+        Minējumu sadalījums
       </h4>
       <Histogram gameStats={gameStats} />
     </BaseModal>

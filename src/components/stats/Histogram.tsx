@@ -1,0 +1,25 @@
+import { GameStats } from '../../lib/localStorage'
+import { Progress } from './Progress'
+
+type Props = {
+  gameStats: GameStats
+}
+
+export const Histogram = ({ gameStats }: Props) => {
+  const { totalGames, winDistribution } = gameStats
+  console.log(totalGames)
+  console.log(winDistribution)
+
+  return (
+    <div className="columns-1 justify-left m-2 text-sm">
+      {winDistribution.map((value, i) => (
+        <Progress
+          key={i}
+          index={i}
+          size={95 * (value / totalGames)}
+          label={String(value)}
+        />
+      ))}
+    </div>
+  )
+}

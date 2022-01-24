@@ -7,21 +7,21 @@ type Props = {
 
 export const AboutModal = ({ isOpen, handleClose }: Props) => {
   return (
-    <BaseModal title="About" isOpen={isOpen} handleClose={handleClose}>
+    <BaseModal title="Par Vārduli" isOpen={isOpen} handleClose={handleClose}>
       <p className="text-sm text-gray-500">
-        This is an open source clone of the game Wordle -{' '}
+        Šis ir Wordle spēles atvērtā pirmkoda klons -{' '}
         <a
           href="https://github.com/hannahcode/wordle"
           className="underline font-bold"
         >
-          check out the code here
+          ieskaties kodā šeit
         </a>{' '}
-        and{' '}
+        un{' '}
         <a
           href="https://www.powerlanguage.co.uk/wordle/"
           className="underline font-bold"
         >
-          play the original here
+          spēlē oriģinālu šeit
         </a>
       </p>
     </BaseModal>

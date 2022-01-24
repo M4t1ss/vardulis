@@ -36,7 +36,26 @@
 		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
-
+	  
+	  //Convert old local storage to new
+	  stuff = JSON.parse(window.localStorage.gameStats);
+	  if(stuff.successRate === undefined){
+		stuff.winDistribution = stuff.distribution;
+		stuff.currentStreak = stuff.current;
+		stuff.bestStreak = stuff.best;
+		let sum = 0;
+		for (let i = 0; i < stuff.distribution.length; i++) {
+			sum += stuff.distribution[i];
+		}
+		stuff.totalGames = sum;
+		stuff.gamesFailed = 0;
+		stuff.successRate = 100;
+		window.localStorage.gameStats = JSON.stringify(stuff);
+	  }
+	  if(stuff.winDistribution !== undefined && stuff.winDistribution.length == 7){
+		stuff.winDistribution.pop();
+		window.localStorage.gameStats = JSON.stringify(stuff);
+	  }
 	</script>
   </head>
   <body>

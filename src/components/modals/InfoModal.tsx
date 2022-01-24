@@ -8,7 +8,7 @@ type Props = {
 
 export const InfoModal = ({ isOpen, handleClose }: Props) => {
   return (
-    <BaseModal title="How to play" isOpen={isOpen} handleClose={handleClose}>
+    <BaseModal title="Kā spēlēt" isOpen={isOpen} handleClose={handleClose}>
 		<p className="text-sm text-gray-500">
 		  Uzmini vārduli sešos mēģinājumos. Pēc katra minējuma katra burta
 		  fona krāsa parādīs, cik tuvu Tavs minējums bijis patiesībai.
