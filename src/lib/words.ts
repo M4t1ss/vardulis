@@ -18,16 +18,13 @@ export const getWordOfDay = () => {
   const now = Date.now()
   const msInDay = 86400000
   const index = Math.floor((now - epochMs) / msInDay)
-  var totalLeft = (1-(((now - epochMs) /msInDay)-(index)))*24
-  var hoursLeft = Math.floor(totalLeft)
-  var mLeft = totalLeft-hoursLeft
-  var minutesLeft = Math.floor(mLeft*60)
-  console.log("Atlikušas " + hoursLeft + " stundas un " + minutesLeft + " minūtes līdz nākamajam vārdam.")
+  const nextday = (index + 1) * msInDay + epochMs
 
   return {
     solution: WORDS[index].toUpperCase(),
     solutionIndex: index,
+    tomorrow: nextday,
   }
 }
 
-export const { solution, solutionIndex } = getWordOfDay()
+export const { solution, solutionIndex, tomorrow } = getWordOfDay()
