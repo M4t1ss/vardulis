@@ -42,7 +42,7 @@ export const StatsModal = ({
       <Histogram gameStats={gameStats} />
       {(isGameLost || isGameWon) && (
         <div className="mt-5 sm:mt-6 columns-1">
-			<h5>Apskati šodienas vārdu tēzaurā - <a href={tezaurs}>{solution.toLowerCase()}</a></h5>
+			<h5>Apskati šodienas vārdu <a href={tezaurs}>Tēzaurā</a></h5>
 			<div className="mt-5 sm:mt-6 columns-2">
 			  <div>
 				<h5>Jauns vārds pēc</h5>

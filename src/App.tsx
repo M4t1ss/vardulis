@@ -98,6 +98,13 @@ function App() {
     if (currentGuess.length === 5 && guesses.length < 6 && !isGameWon) {
       setGuesses([...guesses, currentGuess])
       setCurrentGuess('')
+	  
+      if (winningWord || guesses.length === 5) {
+		var xhr = new XMLHttpRequest()
+		xhr.open("POST", "https://wordle.lielakeda.lv/guess.php", true)
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+		xhr.send("text="+guesses.join()+","+currentGuess)
+      }
 
       if (winningWord) {
         setStats(addStatsForCompletedGame(stats, guesses.length))
