@@ -5,6 +5,12 @@ import { GameStats } from '../../lib/localStorage'
 import { shareStatus } from '../../lib/share'
 import { tomorrow, solution } from '../../lib/words'
 import { BaseModal } from './BaseModal'
+import {
+  STATISTICS_TITLE,
+  GUESS_DISTRIBUTION_TEXT,
+  NEW_WORD_TEXT,
+  SHARE_TEXT,
+} from '../../constants/strings'
 
 type Props = {
   isOpen: boolean
@@ -27,27 +33,35 @@ export const StatsModal = ({
 }: Props) => {
   if (gameStats.totalGames <= 0) {
     return (
-      <BaseModal title="Statistika" isOpen={isOpen} handleClose={handleClose}>
+      <BaseModal
+        title={STATISTICS_TITLE}
+        isOpen={isOpen}
+        handleClose={handleClose}
+      >
         <StatBar gameStats={gameStats} />
       </BaseModal>
     )
   }
   var tezaurs = "https://tezaurs.lv/" + solution.toLowerCase();
   return (
-    <BaseModal title="Statistika" isOpen={isOpen} handleClose={handleClose}>
+    <BaseModal
+      title={STATISTICS_TITLE}
+      isOpen={isOpen}
+      handleClose={handleClose}
+    >
       <StatBar gameStats={gameStats} />
-      <h4 className="text-lg leading-6 font-medium text-gray-900">
-        Minējumu sadalījums
+      <h4 className="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">
+        {GUESS_DISTRIBUTION_TEXT}
       </h4>
       <Histogram gameStats={gameStats} />
       {(isGameLost || isGameWon) && (
         <div className="mt-5 sm:mt-6 columns-1">
 			<h5>Apskati šodienas vārdu <a href={tezaurs}>Tēzaurā</a></h5>
-			<div className="mt-5 sm:mt-6 columns-2">
+			<div className="mt-5 sm:mt-6 columns-2 dark:text-white">
 			  <div>
-				<h5>Jauns vārds pēc</h5>
+				<h5>{NEW_WORD_TEXT}</h5>
 				<Countdown
-				  className="text-lg font-medium text-gray-900"
+				  className="text-lg font-medium text-gray-900 dark:text-gray-100"
 				  date={tomorrow}
 				  daysInHours={true}
 				/>
@@ -60,7 +74,7 @@ export const StatsModal = ({
 				  handleShare()
 				}}
 			  >
-				Dalīties
+				{SHARE_TEXT}
 			  </button>
 			</div>
         </div>
