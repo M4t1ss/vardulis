@@ -55,8 +55,8 @@ export const StatsModal = ({
       </h4>
       <Histogram gameStats={gameStats} />
       {(isGameLost || isGameWon) && (
-        <div className="mt-5 sm:mt-6 columns-1">
-			<h5>Apskati šodienas vārdu <a href={tezaurs}>Tēzaurā</a></h5>
+        <div className="mt-5 sm:mt-6 columns-1 dark:text-white">
+			<h5>Apskati šodienas vārdu <b><a href={tezaurs}>Tēzaurā</a></b></h5>
 			<div className="mt-5 sm:mt-6 columns-2 dark:text-white">
 			  <div>
 				<h5>{NEW_WORD_TEXT}</h5>
