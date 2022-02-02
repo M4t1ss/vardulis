@@ -11,7 +11,7 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
       <p className="text-sm text-gray-500">
         Šis ir Wordle spēles atvērtā pirmkoda klons -{' '}
         <a
-          href="https://github.com/hannahcode/wordle"
+          href="https://github.com/hannahcode/GAME"
           className="underline font-bold"
         >
           ieskaties kodā šeit
