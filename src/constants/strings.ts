@@ -1,4 +1,4 @@
-export const WORDLE_TITLE = 'Vārdulis'
+export const GAME_TITLE = 'Vārdulis'
 
 export const WIN_MESSAGES = ['Labi padarīts!', 'Apsveicami!', 'Bumbās!']
 export const GAME_COPIED_MESSAGE = 'Spēle nokopēta starpliktuvē'
