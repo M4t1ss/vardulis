@@ -8,10 +8,10 @@ type Props = {
 export const AboutModal = ({ isOpen, handleClose }: Props) => {
   return (
     <BaseModal title="Par Vārduli" isOpen={isOpen} handleClose={handleClose}>
-      <p className="text-sm text-gray-500">
+      <p className="text-sm text-gray-500 dark:text-gray-300">
         Šis ir Wordle spēles atvērtā pirmkoda klons -{' '}
         <a
-          href="https://github.com/hannahcode/GAME"
+          href="https://github.com/cwackerfuss/react-wordle"
           className="underline font-bold"
         >
           ieskaties kodā šeit
