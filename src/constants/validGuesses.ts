@@ -1,4 +1,4 @@
-export const VALIDGUESSES = [
+export const VALID_GUESSES = [
 	'agnas',
 	'agnie',
 	'agnās',
