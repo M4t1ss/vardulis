@@ -29,14 +29,21 @@ Open [http://localhost:3000](http://localhost:3000) in browser.
 
 ### Other languages
 
+- [Wortel](https://wortel.wrintiewaar.co.za): Afrikaans
 - [Latindictionary.io](https://wordle.latindictionary.io/): Latin
 - [Kelmaly](https://kelmaly.com/): Arabic
 - [Arwordle](https://arwordle.netlify.app/): Arabic
 - [Wörtchen](https://woertchen.sofacoach.de): German
-- [Vārdulis](wordle.lielakeda.lv/): Latvian
+- [Vārdulis](https://wordle.lielakeda.lv/): Latvian
 - [꼬들 - 한국어](https://belorin.github.io/): Korean
 - [한글 풀어쓰기 5자](https://nakosung.github.io/wordle/): Korean
 - [Urdle](https://urdle.chaoticity.com/): Urdu
+- [சொல்லாடல் Soladle](https://omtamil.com/soladle): Tamil
+- [Szózat](https://szozat.miklosdanka.com/): Hungarian
+- [Pashtoodle](https://pashtoodle.lingdocs.com): Pashto
+- [Malay](https://malay-wordle.netlify.app/): Bahasa Malaysia
+- [ਪੰਜਾਬੀ](https://punjabipuzzle.netlify.app/): Punjabi
+- [Слівце](https://slivce.com/): Ukrainian
 
 ### Fun themes
 
@@ -45,8 +52,13 @@ Open [http://localhost:3000](http://localhost:3000) in browser.
 - [Dundle](https://dundle.dunmiffcord.com/): The Office
 - [Weedel](https://meetmeinouter.space/wordle/): Video game characters
 - [JoJodle](https://jojo-news.com/fun/jojodle/): JoJo’s Bizarre Adventure
+- [Airportle](https://airportle.scottscheapflights.com/): Airport Codes
+- [Mahjong Handle](https://mahjong-handle.update.sh/): Mahjong Hands
+- ['en si lì'ur](https://tirea.learnnavi.org/wordle): Na'vi, the constructed language from James Cameron's AVATAR (2009)
+- [Wordle.cl](https://www.wordle.cl): Chilean modisms, cities, places
+- [Anidal](https://anidal-abrarhayat.web.app/): Animals
 
-### Math, Acronyms, and more
+### Math, Acronyms, Science, Tech, and more
 
 - [Primel](https://converged.yt/primel/): Prime numbers
 - [Syscordle](https://nezza.github.io/syscordle/): SYSCALL
@@ -54,6 +66,8 @@ Open [http://localhost:3000](http://localhost:3000) in browser.
 - [Stockle](https://stockle.win/): Guess the stock or ETF
 - [AI-powered](https://github.com/asirota/wordle-ai): Includes an AI component
 - [Passwordle](https://passwordle.sp8c3.com/): Passwords
+- [Genel](https://andrewholding.github.io/gene-wordle/): Gene symbols
+- [Numble](https://rbrignall.github.io/numble/): Maths
 
 _Want to add one to the list? Just make a pull request or [let us know via a comment here](https://github.com/cwackerfuss/react-wordle/issues/120)_
 
