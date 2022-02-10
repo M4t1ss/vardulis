@@ -25,7 +25,7 @@ export const findFirstUnusedReveal = (word: string, guesses: string[]) => {
         knownLetterSet.add(guess[i])
       }
       if (statuses[i] === 'correct' && word[i] !== guess[i]) {
-        return `Must use ${guess[i]} in position ${i + 1}`
+        return `Minējumā jāizamanto burts ${guess[i]} pozīcijā ${i + 1}`
       }
     }
   }
@@ -33,7 +33,7 @@ export const findFirstUnusedReveal = (word: string, guesses: string[]) => {
   for (const letter of Array.from(knownLetterSet.values())) {
     // fail fast, always return first failed letter if applicable
     if (!word.includes(letter)) {
-      return `Guess must contain ${letter}`
+      return `Minējumam jāsatur burts ${letter}`
     }
   }
   return false
