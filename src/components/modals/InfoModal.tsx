@@ -35,7 +35,6 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
 		<p className="text-sm text-gray-500">
 		  Burts Ī ir vārdā, bet citā pozīcijā.
 		</p>
-
 		<div className="flex justify-center mb-1 mt-4">
 		  <Cell value="G" />
 		  <Cell value="A" />
@@ -43,9 +42,25 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
 		  <Cell value="A" />
 		  <Cell value="S" />
 		</div>
-		<p className="text-sm text-gray-500">
+		<p className="text-sm text-gray-500 dark:text-gray-300">
 		  Burts Ļ vārdā neatrodas nevienā pozīcijā.
 		</p>
+	  <p className="text-sm text-gray-500 dark:text-gray-300">
+		Šis ir Wordle spēles atvērtā pirmkoda klons -{' '}
+		<a
+		  href="https://github.com/cwackerfuss/react-wordle"
+		  className="underline font-bold"
+		>
+		  ieskaties kodā šeit
+		</a>{' '}
+		un{' '}
+		<a
+		  href="https://www.powerlanguage.co.uk/wordle/"
+		  className="underline font-bold"
+		>
+		  spēlē oriģinālu šeit
+		</a>
+	  </p>
     </BaseModal>
   )
 }

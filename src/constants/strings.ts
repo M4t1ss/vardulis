@@ -7,6 +7,12 @@ export const NOT_ENOUGH_LETTERS_MESSAGE = 'Pārāk maz burtu'
 export const WORD_NOT_FOUND_MESSAGE = 'Vārds netika atrasts'
 export const CORRECT_WORD_MESSAGE = (solution: string) =>
   `Tu zaudēji, vārds bija ${solution}`
+export const HARD_MODE_ALERT_MESSAGE =
+  'Grūto režīmu var ieslēgt tikai spēles sākumā!'
+export const WRONG_SPOT_MESSAGE = (guess: string, position: number) =>
+  `Burts ${guess} jālieto pozīcijā ${position}`
+export const NOT_CONTAINED_MESSAGE = (letter: string) =>
+  `Minējumam jāsatur burts ${letter}`
 export const ENTER_TEXT = 'Ievadīt'
 export const DELETE_TEXT = 'Dzēst'
 export const STATISTICS_TITLE = 'Statistika'
