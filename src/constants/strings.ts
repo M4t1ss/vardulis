@@ -2,9 +2,11 @@ export const GAME_TITLE = 'Vārdulis'
 
 export const WIN_MESSAGES = ['Labi padarīts!', 'Apsveicami!', 'Bumbās!']
 export const GAME_COPIED_MESSAGE = 'Spēle nokopēta starpliktuvē'
-export const ABOUT_GAME_MESSAGE = 'Par šo spēli'
 export const NOT_ENOUGH_LETTERS_MESSAGE = 'Pārāk maz burtu'
 export const WORD_NOT_FOUND_MESSAGE = 'Vārds netika atrasts'
+export const HARD_MODE_DESCRIPTION =
+  'Atklātie burti obligāti jālieto turpmākos minējumos'
+export const HIGH_CONTRAST_MODE_DESCRIPTION = 'Uzlabotai saskatīšanai'
 export const CORRECT_WORD_MESSAGE = (solution: string) =>
   `Tu zaudēji, vārds bija ${solution}`
 export const HARD_MODE_ALERT_MESSAGE =
