@@ -110,6 +110,7 @@ Open [http://localhost](http://localhost) in browser.
 ### Math, Acronyms, Science, Tech, and more
 
 - [AI-powered](https://github.com/asirota/wordle-ai): Includes an AI component
+- [Colordle](https://github.com/necropolina/colordle): Guess the hexadecimal color code of the background
 - [Genel](https://andrewholding.github.io/gene-wordle/): Gene symbols
 - [Jazle](https://jazle.quest/): Javascript
 - [Mathler](https://www.mathler.com/): Find the solution that equals X
