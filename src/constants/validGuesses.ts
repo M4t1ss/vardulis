@@ -22258,5 +22258,21 @@ export const VALID_GUESSES = [
 	'žvikt',
 	'žvira',
 	'žvīgo',
-	'žvīks'
+	'žvīks',
+	'porti',
+	'kūlas',
+	'pakām',
+	'pakai',
+	'lakai',
+	'jakai',
+	'aldis',
+	'lūpas',
+	'rīmas',
+	'nūjas',
+	'ēzeļi',
+	'lāvām',
+	'lodēm',
+	'gulbī',
+	'zīles',
+	'zīlei'
 ]
