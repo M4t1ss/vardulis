@@ -76,9 +76,19 @@ export const localeAwareUpperCase = (text: string) => {
 
 export const getWordOfDay = () => {
   // January 1, 2022 Game Epoch
-  const epochMs = 1640988000000
+  var epochMs = 1640988000000
   const now = Date.now()
   const msInDay = 86400000
+  
+  //Laika grozīšana Latvijā
+  var year = new Date().getFullYear();
+  var dateNow = new Date();
+  var dstStart = new Date(year+"-03-27T03:00:00.000+03:00");
+  var dstEnd = new Date(year+"-10-30T04:00:00.000+03:00");
+  
+  if (dateNow > dstStart && dateNow < dstEnd) {
+	  epochMs = epochMs - 3600000 // adjust for DST and remove an hour (3600000 ms)
+	}
   const index = Math.floor((now - epochMs) / msInDay)
   const nextday = (index + 1) * msInDay + epochMs
 
