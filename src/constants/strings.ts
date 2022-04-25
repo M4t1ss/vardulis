@@ -25,3 +25,5 @@ export const TOTAL_TRIES_TEXT = 'Mēģinājumi'
 export const SUCCESS_RATE_TEXT = 'Atminēti'
 export const CURRENT_STREAK_TEXT = 'Šobrīd pēc kārtas'
 export const BEST_STREAK_TEXT = 'Visvairāk pēc kārtas'
+export const DISCOURAGE_INAPP_BROWSER_TEXT =
+  "Lietotnē iebūvētā tīmekļa pārlūka lietošana var radīt problēmas ar rezultātu saglabāšanu un dalīšanos. Iesakām lietot ierīces noklusēto tīmekļa pārlūku."

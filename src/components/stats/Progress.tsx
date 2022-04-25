@@ -4,13 +4,18 @@ type Props = {
   index: number
   size: number
   label: string
-  currentDayStatRow: boolean
+  isCurrentDayStatRow: boolean
 }
 
-export const Progress = ({ index, size, label, currentDayStatRow }: Props) => {
+export const Progress = ({
+  index,
+  size,
+  label,
+  isCurrentDayStatRow,
+}: Props) => {
   const currentRowClass = classNames(
     'text-xs font-medium text-blue-100 text-center p-0.5 rounded-full',
-    { 'bg-blue-600': currentDayStatRow, 'bg-gray-500': !currentDayStatRow }
+    { 'bg-blue-600': isCurrentDayStatRow, 'bg-gray-500': !isCurrentDayStatRow }
   )
   return (
     <div className="flex justify-left m-1">
