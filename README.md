@@ -44,6 +44,7 @@ Open [http://localhost](http://localhost) in browser.
 - [Boludle](https://www.boludle.com/): Argentinian
 - [Gerdle](https://gerdle.vext.co.uk/): Cornish (Kernowek)
 - [Jwordle](https://jwordle.vercel.app/): Japanese
+- [Katadel](https://katadel.vercel.app/): Jawi (Malay Arabic script)
 - [Keclap](https://keclap.xyz/): Sundanese
 - [Kelmaly](https://kelmaly.com/): Arabic
 - [Kerdle](https://kerdle.vercel.app/): Cornish/Kernewek (Standard Written Form)
@@ -61,6 +62,7 @@ Open [http://localhost](http://localhost) in browser.
 - [Szózat](https://szozat.miklosdanka.com/): Hungarian
 - [So'zzana](https://sozzana.netlify.app/): O'zbek (Lotin)
 - [Tàu Tâi-gí (Taigi Wordle)](https://tau.taigi.info/): Taigi (Taiwanese)
+- [Telugu](https://teluguwordle.com): Telugu (South Indian Language)
 - [Tlembung](https://tlembung.vercel.app/): Javanese
 - [Tugma](https://tugma.vercel.app): Hiligaynon (spoken in the Philippines)
 - [Ukrainian](https://goroh.pp.ua/games/wordle): Ukrainian
@@ -115,6 +117,7 @@ Open [http://localhost](http://localhost) in browser.
 - [Wordle.cl](https://www.wordle.cl): Chilean modisms, cities, places
 - [Wrdl](https://wrdl-abae.vercel.app/): Words that are 5 letters long after getting rid of their vowels
 - [WROUD](https://www.wroud.net/): W R O U D is a simple word game that challenges people to find a six-letter word in 3 guesses from a cloud of letters. https://www.wroud.net/ A spinoff of Wordle but quite different and may be more fun!. WROUD = Word + Cloud
+- [香港麻雀 糊dle](https://hkwudle.vercel.app/): Mahjong hands under Hong Kong rules
 
 ### Math, Acronyms, Science, Tech, and more
 
