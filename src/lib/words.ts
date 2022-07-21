@@ -4,6 +4,26 @@ import { WRONG_SPOT_MESSAGE, NOT_CONTAINED_MESSAGE } from '../constants/strings'
 import { getGuessStatuses } from './statuses'
 import { default as GraphemeSplitter } from 'grapheme-splitter'
 
+// 1 January 2022 Game Epoch
+export const firstGameDatey = () => {
+	var epochMs = 1640988000000
+	const now = Date.now()
+	const msInDay = 86400000
+
+	//Laika grozīšana Latvijā
+	var year = new Date().getFullYear();
+	var dateNow = new Date();
+	var dstStart = new Date(year+"-03-27T03:00:00.000+03:00");
+	var dstEnd = new Date(year+"-10-30T04:00:00.000+03:00");
+
+	if (dateNow > dstStart && dateNow < dstEnd) {
+		epochMs = epochMs - 3600000 // adjust for DST and remove an hour (3600000 ms)
+	}
+
+	return new Date(epochMs)
+}
+export const periodInDays = 1
+
 export const isWordInWordList = (word: string) => {
   return (
     WORDS.includes(localeAwareLowerCase(word)) ||
@@ -74,29 +94,57 @@ export const localeAwareUpperCase = (text: string) => {
     : text.toUpperCase()
 }
 
-export const getWordOfDay = () => {
-  // January 1, 2022 Game Epoch
-  var epochMs = 1640988000000
-  const now = Date.now()
-  const msInDay = 86400000
-  
-  //Laika grozīšana Latvijā
-  var year = new Date().getFullYear();
-  var dateNow = new Date();
-  var dstStart = new Date(year+"-03-27T03:00:00.000+03:00");
-  var dstEnd = new Date(year+"-10-30T04:00:00.000+03:00");
-  
-  if (dateNow > dstStart && dateNow < dstEnd) {
-	  epochMs = epochMs - 3600000 // adjust for DST and remove an hour (3600000 ms)
-	}
-  const index = Math.floor((now - epochMs) / msInDay)
-  const nextday = (index + 1) * msInDay + epochMs
+export const getToday = () => {
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  return today
+}
 
+export const getLastGameDate = (today: Date) => {
+  const t = new Date(today)
+  t.setHours(0, 0, 0)
+  let daysSinceLastGame =
+    (t.getDay() - firstGameDate.getDay() + 7) % periodInDays
+  const lastDate = new Date(t)
+  lastDate.setDate(t.getDate() - daysSinceLastGame)
+  return lastDate
+}
+
+export const getNextGameDate = (today: Date) => {
+  const t = new Date(today)
+  t.setHours(0, 0, 0)
+  t.setDate(getLastGameDate(today).getDate() + periodInDays)
+  return t
+}
+
+export const getIndex = (today: Date) => {
+  const start = new Date(firstGameDate)
+  let index = -1
+  do {
+    index++
+    start.setDate(start.getDate() + periodInDays)
+  } while (start <= today)
+
+  return index
+}
+
+export const getWordOfDay = (index: number) => {
+  if (index < 0) {
+    throw new Error('Invalid index')
+  }
+
+  return localeAwareUpperCase(WORDS[index % WORDS.length])
+}
+
+export const getSolution = (today: Date) => {
+  const nextGameDate = getNextGameDate(today)
+  const index = getIndex(today)
+  const wordOfTheDay = getWordOfDay(index)
   return {
-    solution: localeAwareUpperCase(WORDS[index % WORDS.length]),
+    solution: wordOfTheDay,
     solutionIndex: index,
-    tomorrow: nextday.valueOf(),
+    tomorrow: nextGameDate.valueOf(),
   }
 }
 
-export const { solution, solutionIndex, tomorrow } = getWordOfDay()
+export const { solution, solutionIndex, tomorrow } = getSolution(getToday())
