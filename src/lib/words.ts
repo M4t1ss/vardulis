@@ -99,7 +99,7 @@ export const localeAwareUpperCase = (text: string) => {
 }
 
 export const getLastGameDate = (today: Date) => {
-  const t = startOfDay(today)
+  const t = getToday()
   let daysSinceLastGame = differenceInDays(firstGameDate, t) % periodInDays
   return addDays(t, -daysSinceLastGame)
 }
