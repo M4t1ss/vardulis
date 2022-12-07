@@ -83,7 +83,7 @@ export const ImmigratePanel = () => {
         htmlFor="message"
         className="mb-2 block text-left text-sm font-medium text-gray-900 dark:text-gray-400"
       >
-        Paste your migration code:
+        Ielīmē pārvietošanas kodu:
       </label>
       <textarea
         onChange={(e) => handleImmigrationCodeChange(e)}
@@ -101,7 +101,7 @@ export const ImmigratePanel = () => {
         {isSaveButtonEnabled && (
           <SaveIcon className="mr-2 h-6 w-6 cursor-pointer dark:stroke-white" />
         )}
-        Save
+        Saglabāt
       </button>
     </div>
   )

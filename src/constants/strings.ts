@@ -34,5 +34,5 @@ export const DISCOURAGE_INAPP_BROWSER_TEXT =
   "Lietotnē iebūvētā tīmekļa pārlūka lietošana var radīt problēmas ar rezultātu saglabāšanu un dalīšanos. Iesakām lietot ierīces noklusēto tīmekļa pārlūku."
 export const DATEPICKER_TITLE = 'Izvēlies datumu pagātnē'
 export const DATEPICKER_CHOOSE_TEXT = 'Izvēlēties'
-export const DATEPICKER_TODAY_TEXT = 'šodiena'
+export const DATEPICKER_TODAY_TEXT = 'šodienu'
 export const ARCHIVE_GAMEDATE_TEXT = 'Spēles diena'
