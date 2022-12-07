@@ -20,36 +20,35 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
           value="S"
           status="correct"
         />
-        <Cell value="I" />
-        <Cell value="E" />
-						  
-        <Cell value="R" />
-        <Cell value="A" />
+        <Cell value="I" isCompleted={true} />
+        <Cell value="E" isCompleted={true} />
+        <Cell value="R" isCompleted={true} />
+        <Cell value="A" isCompleted={true} />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
         Burts S ir vārdā un ir attiecīgajā pozīcijā.
       </p>
       <div className="flex justify-center mb-1 mt-4">
-        <Cell value="M" />
+        <Cell value="M" isCompleted={true} />
         <Cell value="Ī"
           isRevealing={true}
           isCompleted={true}
           status="present"
         />
-        <Cell value="K" />
-        <Cell value="L" />
-        <Cell value="A" />
+        <Cell value="K" isCompleted={true} />
+        <Cell value="L" isCompleted={true} />
+        <Cell value="A" isCompleted={true} />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
         Burts Ī ir vārdā, bet citā pozīcijā.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
-        <Cell value="G" />
-        <Cell value="A" />
-        <Cell value="Ļ" status="absent"  />
-        <Cell value="A" />
-        <Cell value="S" />
+        <Cell value="G" isCompleted={true} />
+        <Cell value="A" isCompleted={true} />
+        <Cell value="Ļ" isRevealing={true} isCompleted={true} status="absent"  />
+        <Cell value="A" isCompleted={true} />
+        <Cell value="S" isCompleted={true} />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
         Burts Ļ vārdā neatrodas nevienā pozīcijā.

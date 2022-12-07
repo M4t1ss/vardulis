@@ -1,19 +1,25 @@
+import { ClockIcon, ShareIcon } from '@heroicons/react/outline'
+import { format } from 'date-fns'
 import Countdown from 'react-countdown'
-import { ShareIcon } from '@heroicons/react/outline'
-import { StatBar } from '../stats/StatBar'
-import { Histogram } from '../stats/Histogram'
-import { GameStats } from '../../lib/localStorage'
-import { shareStatus } from '../../lib/share'
-import { tomorrow, solution } from '../../lib/words'
-import { BaseModal } from './BaseModal'
 import {
-  STATISTICS_TITLE,
+  DATE_LOCALE,
+  ENABLE_ARCHIVED_GAMES,
+  ENABLE_MIGRATE_STATS,
+} from '../../constants/settings'
+import {
+  ARCHIVE_GAMEDATE_TEXT,
   GUESS_DISTRIBUTION_TEXT,
   NEW_WORD_TEXT,
   SHARE_TEXT,
+  STATISTICS_TITLE,
 } from '../../constants/strings'
+import { GameStats } from '../../lib/localStorage'
+import { shareStatus } from '../../lib/share'
+import { solutionGameDate, tomorrow, solution } from '../../lib/words'
+import { Histogram } from '../stats/Histogram'
 import { MigrationIntro } from '../stats/MigrationIntro'
-import { ENABLE_MIGRATE_STATS } from '../../constants/settings'
+import { StatBar } from '../stats/StatBar'
+import { BaseModal } from './BaseModal'
 
 type Props = {
   isOpen: boolean
@@ -21,9 +27,11 @@ type Props = {
   solution: string
   guesses: string[]
   gameStats: GameStats
+  isLatestGame: boolean
   isGameLost: boolean
   isGameWon: boolean
   handleShareToClipboard: () => void
+  handleShareFailure: () => void
   handleMigrateStatsButton: () => void
   isHardMode: boolean
   isDarkMode: boolean
@@ -37,9 +45,11 @@ export const StatsModal = ({
   solution,
   guesses,
   gameStats,
+  isLatestGame,
   isGameLost,
   isGameWon,
   handleShareToClipboard,
+  handleShareFailure,
   handleMigrateStatsButton,
   isHardMode,
   isDarkMode,
@@ -68,10 +78,11 @@ export const StatsModal = ({
       handleClose={handleClose}
     >
       <StatBar gameStats={gameStats} />
-      <h4 className="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">
+      <h4 className="text-lg font-medium leading-6 text-gray-900 dark:text-gray-100">
         {GUESS_DISTRIBUTION_TEXT}
       </h4>
       <Histogram
+        isLatestGame={isLatestGame}
         gameStats={gameStats}
         isGameWon={isGameWon}
         numberOfGuessesMade={numberOfGuessesMade}
@@ -80,6 +91,7 @@ export const StatsModal = ({
         <div className="mt-5 sm:mt-6 columns-1 dark:text-white">
           <h5>Apskati šodienas vārdu <b><a href={tezaurs}>Tēzaurā</a></b></h5>
           <div className="mt-5 sm:mt-6 columns-2 dark:text-white">
+          {(!ENABLE_ARCHIVED_GAMES || isLatestGame) && (
           <div>
             <h5>{NEW_WORD_TEXT}</h5>
             <Countdown
@@ -87,11 +99,25 @@ export const StatsModal = ({
               date={tomorrow}
               daysInHours={true}
             />
+              </div>
+            )}
+            {ENABLE_ARCHIVED_GAMES && !isLatestGame && (
+              <div className="mt-2 inline-flex">
+                <ClockIcon className="mr-1 mt-2 mt-1 h-5 w-5 stroke-black dark:stroke-white" />
+                <div className="mt-1 ml-1 text-center text-sm sm:text-base">
+                  <strong>{ARCHIVE_GAMEDATE_TEXT}:</strong>
+                  <br />
+                  {format(solutionGameDate, 'd MMMM yyyy', {
+                    locale: DATE_LOCALE,
+                  })}
+                </div>
+              </div>
+            )}
           </div>
           <div>
             <button
               type="button"
-              className="inline-flex justify-center items-center text-center mt-2 w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+              className="mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-center text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-base"
               onClick={() => {
                 shareStatus(
                   solution,
@@ -100,11 +126,12 @@ export const StatsModal = ({
                   isHardMode,
                   isDarkMode,
                   isHighContrastMode,
-                  handleShareToClipboard
+                  handleShareToClipboard,
+                  handleShareFailure
                 )
               }}
             >
-              <ShareIcon className="h-6 w-6 mr-2 cursor-pointer dark:stroke-white" />
+              <ShareIcon className="mr-2 h-6 w-6 cursor-pointer dark:stroke-white" />
               {SHARE_TEXT}
             </button>
           </div>
