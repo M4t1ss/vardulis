@@ -55,7 +55,7 @@ export const ImmigratePanel = () => {
     if (
       textarea &&
       window.confirm(
-        'Are you sure you want to override the statistics on this device? This action is not reversable.'
+        'Vai tiešām vēlies aizvietot šīs ierīces statistiku? To nevarēs atgriezt.'
       )
     ) {
       var migrationStats = JSON.parse(
@@ -71,7 +71,7 @@ export const ImmigratePanel = () => {
         saveStatsToLocalStorage(migrationStats.statistics)
       }
 
-      alert('The site will now reload.')
+      alert('Lapa tiks pārlādēta.')
 
       window.location.reload()
     }
