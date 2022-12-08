@@ -250,12 +250,15 @@ function App() {
     ) {
       setGuesses([...guesses, currentGuess])
       setCurrentGuess('')
-	  
-      if (winningWord || guesses.length === 5) {
-		var xhr = new XMLHttpRequest()
-		xhr.open("POST", "https://wordle.lielakeda.lv/guess.php", true)
-		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-		xhr.send("text="+guesses.join()+","+currentGuess)
+      
+      let currentURL = window.location.href;
+      let historical = "/?d=";
+      let current = !(currentURL.includes(historical));
+      if ((winningWord || guesses.length === 5) && current) {
+        var xhr = new XMLHttpRequest()
+        xhr.open("POST", "https://wordle.lielakeda.lv/guess.php", true)
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        xhr.send("text="+guesses.join()+","+currentGuess)
       }
 
       if (winningWord) {
